@@ -1,4 +1,8 @@
 # netsnake
+
+This utility allows you to capture network packets on the selected network interface. A chart o the volume of transmitted and received packets is displayed. It has an ability to filter intercepted packets by source ip,source port, destination ip,destination port, type of protocol and length packets.
+It is possible to save a dump of captured packets in .pcap file extension for opening by WireShark software. Also,the main advantage of netsnake is sending your own network packets (ARP,TCP/IP,UDP) whith chosen parameters including payload data.which is byte array with max length = 1450 bytes. If your array of bytes has more 1450 bytes, it breaks into packages.
+
 ---------------------------------------
 ----------Filter options---------------
 ---------------------------------------
