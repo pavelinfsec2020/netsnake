@@ -1,4 +1,4 @@
-﻿using PacketDotNet;
+using PacketDotNet;
 using System;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -26,14 +26,13 @@ namespace NetSnake
         {
             for (int i = 0; i < countOfPackets; i++)
             {
-              //  try { NetworkInterfaces.chosenDevice.SendPacket(ethernetPacket); } catch (Exception e) { }
                 NetworkInterfaces.chosenDevice.SendPacket(ethernetPacket);
                 await Task.Delay(500);
             }
         }        
-        //---------------------------------------------------
-        // Отправка ARP пакета перегруженным методом
-        //---------------------------------------------------
+        ///<summary>
+        /// Отправка ARP пакета перегруженным методом
+        ///</summary>
         public  void SendPacket(
             bool IsResponce,
             string targetMAC,
@@ -59,9 +58,9 @@ namespace NetSnake
             IterationSend(count);     
         }
 
-        //---------------------------------------------------
-        // Отправка TCP пакета перегруженным методом
-        //---------------------------------------------------
+        ///<summary>
+        /// Отправка TCP пакета перегруженным методом
+        ///</summary>
         public void SendPacket(         
             string destIP,
             ushort destPort,
@@ -133,9 +132,9 @@ namespace NetSnake
            
         }
 
-        //---------------------------------------------------
-        // Отправка UDP пакета перегруженным методом
-        //---------------------------------------------------
+        ///<summary>
+        /// Отправка UDP пакета перегруженным методом
+        ///</summary>
         public void SendPacket(
             string destIP,
             ushort destPort,

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -35,9 +35,9 @@ namespace NetSnake
             filterBox.KeyDown += new KeyEventHandler(EnterKeyPressed);
         }
 
-        //--------------------------------------------------------------
-        //Добавление строк в коллецию, соотвествующую требованиям для OR
-        //--------------------------------------------------------------
+        ///<summary>
+        ///Добавление строк в коллецию, соотвествующую требованиям для OR
+        ///</summary>
         private List<string[]> AddFilteredRows(string rowValue, int index, List<string[]> unfilteredTable, bool isOrCombo)
         {
 
@@ -64,9 +64,9 @@ namespace NetSnake
             return filteredTable;
         }
 
-        //--------------------------------------------------------------
-        //Добавление строк в коллецию, соотвествующую требованиям
-        //--------------------------------------------------------------
+        ///<summary>
+        ///Добавление строк в коллецию, соотвествующую требованиям
+        ///</summary>
         private List<string[]> AddFilteredRows(string rowValue, int index, List<string[]> unfilteredTable)
         {
             List<string[]> filteredTable = new List<string[]>();
@@ -80,9 +80,9 @@ namespace NetSnake
             return filteredTable;
         }
 
-        //--------------------------------------------------------------
-        //Отбор пакетов из таблицы, соответствующих указанным параметрам
-        //--------------------------------------------------------------
+        ///<summary>
+        ///Отбор пакетов из таблицы, соответствующих указанным параметрам
+        ///</summary>
         private string[] DeleteAllBackSpaces(string[] strWithSpaces)
         {
             string[] strWithOutSpaces = new string[strWithSpaces.Length];
@@ -94,9 +94,9 @@ namespace NetSnake
             return strWithOutSpaces;
         }
 
-        //--------------------------------------------------------------
-        //Отбор пакетов из таблицы, соответствующих указанным параметрам
-        //--------------------------------------------------------------
+        ///<summary>
+        ///Отбор пакетов из таблицы, соответствующих указанным параметрам
+        ///</summary>
         private void SelectPacketsByParams()
         {
             if (IsOrConstructions)
@@ -125,9 +125,9 @@ namespace NetSnake
 
         }
 
-        //-------------------------------------------
-        //При нажатии enter начинает применять фильтр
-        //-------------------------------------------
+        ///<summary>
+        ///При нажатии enter начинает применять фильтр
+        ///</summary>
         private void EnterKeyPressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -154,9 +154,9 @@ namespace NetSnake
             }
         }
 
-        //------------------------------------------------------------
-        //Прверяет введеный параметр на соответсвие ключевому слову
-        //------------------------------------------------------------
+        ///<summary>
+        ///Прверяет введеный параметр на соответсвие ключевому слову
+        ///</summary>
         private bool CheckKeyWords(string text)
         {
 
@@ -169,9 +169,9 @@ namespace NetSnake
 
         }
 
-        //--------------------------------
-        //Определяет цвет строки
-        //--------------------------------
+        ///<summary>
+        ///Определяет цвет строки
+        ///</summary>
         private Color GetRowColor(string protocol)
         {
             switch (protocol)
@@ -189,17 +189,17 @@ namespace NetSnake
 
 
         }
-        //--------------------------------
-        //Вызывается при изменении текста
-        //--------------------------------
+        ///<summary>
+        ///Вызывается при изменении текста
+        ///</summary>
         private void TextChanged(object semder, EventArgs e)
         {
             filterBox.BackColor = CheckCorrectFlags(filterBox.Text);
         }
 
-        //---------------------------------------
-        //Устанавливает цвет поля ввода параметра 
-        //---------------------------------------
+        ///<summary>
+        ///Устанавливает цвет поля ввода параметра 
+        ///</summary>
         private Color CheckCorrectFlags(string text)
         {
             string[] comboOr = text.Split('|');

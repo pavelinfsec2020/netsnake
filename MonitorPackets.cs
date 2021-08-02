@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using SharpPcap;
 using System.Collections.Generic;
@@ -80,9 +80,9 @@ namespace NetSnake
              filter=null;      
     }
 
-        //------------------------------------------------------------
-        //Присваиваем методы, реализующие события winforms интерфейсов
-        //------------------------------------------------------------
+        ///<summary>
+        ///Присваиваем методы, реализующие события winforms интерфейсов
+        ///</summary>
         private void InicializeInterfaceEvents()
         {
             chosenDevace.OnPacketArrival += new PacketArrivalEventHandler(GetPacketsEvent);
@@ -102,17 +102,17 @@ namespace NetSnake
             saveBtnDump.Click += new EventHandler(DumpClick);
         }
 
-        //---------------------------------------------------
-        // Происходит при нажатии пункта в меню ПКМ
-        //---------------------------------------------------
+        ///<summary>
+        /// Происходит при нажатии пункта в меню ПКМ
+        ///</summary>
         private void DumpClick(object sender, EventArgs e)
         {
             PcapDump.WriteBytesInPcapFile(packetsData);
         }
         
-        //---------------------------------------------------
-        // Происходит при нажатии пункта в меню ПКМ
-        //---------------------------------------------------
+        ///<summary>
+        /// Происходит при нажатии пункта в меню ПКМ
+        ///</summary>
         private void MenuItemClick(object sender, ToolStripItemClickedEventArgs e)
         {
             if (IsUtfClicked)
@@ -126,9 +126,9 @@ namespace NetSnake
                 IsHexClicked = false;
             }
         }
-        //---------------------------------------------------
-        // Общий случай копирования значений выделенных ячеек
-        //---------------------------------------------------
+        ///<summary>
+        /// Общий случай копирования значений выделенных ячеек
+        ///</summary>
         private void CopySelectedCells(DataGridView DG)
         {
             string buffer = string.Empty;
@@ -147,10 +147,10 @@ namespace NetSnake
             }
             Clipboard.SetText(buffer);
         }
-
-        //-----------------------------------------------------
-        // Копирует содержимое выделенных пакетов в UTF в буфер
-        //-----------------------------------------------------
+        
+        ///<summary>
+        /// Копирует содержимое выделенных пакетов в UTF в буфер
+        ///</summary>
         private void ASCIICellsCopy(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -162,9 +162,9 @@ namespace NetSnake
 
         }
 
-        //---------------------------------------------
-        // Копирует содержимое выделенных пакетов в HEX
-        //---------------------------------------------
+        ///<summary>
+        /// Копирует содержимое выделенных пакетов в HEX
+        ///</summary>
         private void HexCellsCopy(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -174,9 +174,9 @@ namespace NetSnake
             }
         }
 
-        //------------------------------------------
-        // Нажатие на кнопку запуска захвата пакетов
-        //------------------------------------------
+        ///<summary>
+        /// Нажатие на кнопку запуска захвата пакетов
+        ///</summary>
         private void ClickStartCapture(object sender, EventArgs e)
         {
             ClearAllDataGrids();
@@ -186,9 +186,9 @@ namespace NetSnake
             IsActiveCapture = true;
         }
 
-        //---------------------------------------------
-        // Очищает все таблицы интерфейса
-        //---------------------------------------------
+        ///<summary>
+        /// Очищает все таблицы интерфейса
+        ///</summary>
         private void ClearAllDataGrids()
         {
             viewerOfPackets.Rows.Clear();
@@ -196,41 +196,41 @@ namespace NetSnake
             dataPacketViewerASCII.Rows.Clear();
         }
 
-        //---------------------------------------------
-        // Нажатие на кнопку завершения захвата пакетов
-        //---------------------------------------------
+        ///<summary>
+        /// Нажатие на кнопку завершения захвата пакетов
+        ///</summary>
         private void ClickStopCapture(object sender, EventArgs e)
         {
             IsActiveCapture = false;
         }
 
-        //-------------------------------------------------------------------------------------------------------------------------------
-        // Изменяет цвет фона поля фильтра на красный, если ключевая команда введена неверно, на зеленый-верно, белый- поле фильтра пусто
-        //-------------------------------------------------------------------------------------------------------------------------------
+        ///<summary>
+        /// Изменяет цвет фона поля фильтра на красный, если ключевая команда введена неверно, на зеленый-верно, белый- поле фильтра пусто
+        ///</summary>
         private void FilterTextChanged(object senderm, EventArgs e)
         {
             dataPacketViewerHEX.FirstDisplayedScrollingRowIndex = dataPacketViewerASCII.FirstDisplayedScrollingRowIndex;
         }
 
-        //----------------------------------------------------------------------------------------
-        // При прокрутке ползунка в окне вывода UTF,автоматически прокручивает и в HEX окне
-        //----------------------------------------------------------------------------------------
+        ///<summary>
+        //// При прокрутке ползунка в окне вывода UTF,автоматически прокручивает и в HEX окне
+        ///</summary>
         private void SynchronizedScrollWithHEX(object senderm, ScrollEventArgs e)
         {
             dataPacketViewerHEX.FirstDisplayedScrollingRowIndex = dataPacketViewerASCII.FirstDisplayedScrollingRowIndex;
         }
 
-        //----------------------------------------------------------------------------------------
-        // При прокрутке ползунка в окне вывода HEX,автоматически прокручивает и в UTF окне
-        //----------------------------------------------------------------------------------------
+        ///<summary>
+        /// При прокрутке ползунка в окне вывода HEX,автоматически прокручивает и в UTF окне
+        ///</summary>
         private void SynchronizedScrollWithUTF(object senderm, ScrollEventArgs e)
         {
             dataPacketViewerASCII.FirstDisplayedScrollingRowIndex = dataPacketViewerHEX.FirstDisplayedScrollingRowIndex;
         }
 
-        //-------------------------------------------------------
-        //Происходиит при выделении содержимого пакета в окне utf 
-        //-------------------------------------------------------
+        ///<summary>
+        ///Происходиит при выделении содержимого пакета в окне utf 
+        ///</summary>
         private void SelectedUTFPackets(object sender, EventArgs e)
         {
 
@@ -238,9 +238,9 @@ namespace NetSnake
 
         }
 
-        //-------------------------------------------------------------
-        //Выделяет соответствующие hex значения выделенных символов utf
-        //-------------------------------------------------------------
+        ///<summary>
+        ///Выделяет соответствующие hex значения выделенных символов utf
+        ///</summary>
         private void SelectCellsInAnotherDG(DataGridView DG1, DataGridView DG2)
         {
 
@@ -257,9 +257,9 @@ namespace NetSnake
             }
         }
 
-        //-----------------------------------------------------------
-        //Возвращает матрицу из 18 колонок hex значений из hex строки
-        //-----------------------------------------------------------
+        ///<summary>
+        ///Возвращает матрицу из 18 колонок hex значений из hex строки
+        ///</summary>
         private string[][] GetHEXArray(string hexString)
         {
 
@@ -287,9 +287,9 @@ namespace NetSnake
             }
             return matrixArrHEX;
         }
-        //------------------------------------------------------------------------
-        //При нажатии на перехваченный пакет показывает его содержимое в utf и HEX
-        //------------------------------------------------------------------------
+        ///<summary>
+        /// При нажатии на перехваченный пакет показывает его содержимое в utf и HEX
+        ///<summary>
         private void PacketCellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 )  return;
@@ -308,9 +308,9 @@ namespace NetSnake
         
            
         }
-        //--------------------------------------------------------------------------------------------
-        //Преобразует двумерный массив hex значений в двумерный массив с такм же размепрм utf значений
-        //--------------------------------------------------------------------------------------------
+        ///<summary>
+        ///Преобразует двумерный массив hex значений в двумерный массив с такм же размепрм utf значений
+        ///</summary>
         private string[][] ConvertHEXtoASCII(string[][] matrixHEXArray)
         {
             int rowMatrixCount = matrixHEXArray.GetLength(0);
@@ -335,9 +335,9 @@ namespace NetSnake
             return packetDataInASCII;
         }
 
-        //-------------------------------------------------------------------------------------------
-        //Асинхронный запуск потока перехвата пакетов, не нарушая работу пользовательскому интерфейсу
-        //-------------------------------------------------------------------------------------------
+        ///<summary>
+        ///Асинхронный запуск потока перехвата пакетов, не нарушая работу пользовательскому интерфейсу
+        ///</summary>
         private async void StarsCatchPackets()
         {                   
             await Task.Run(() =>
@@ -352,9 +352,9 @@ namespace NetSnake
                 });   
         }
 
-        //-------------------------------------------------------------------------------------------
-        //Асинхронный запуск потока перехвата пакетов, не нарушая работу пользовательскому интерфейсу
-        //-------------------------------------------------------------------------------------------
+        ///<summary>
+        ///Асинхронный запуск потока перехвата пакетов, не нарушая работу пользовательскому интерфейсу
+        ///</summary>
         private async  void StopCatchPackets()
         {
             await Task.Run(() =>
@@ -363,9 +363,9 @@ namespace NetSnake
             });
         }
 
-        //------------------------------------------------------------------------------------
-        //Через делегаты вводит в ДатаГрид информацию о перехваченном пакете из другого потока
-        //------------------------------------------------------------------------------------
+        ///<summary>
+        ///Через делегаты вводит в ДатаГрид информацию о перехваченном пакете из другого потока
+        ///</summary>
         private void EnterInfoPacketsInTable(
             string time,
             string IPSource,
@@ -408,9 +408,9 @@ namespace NetSnake
             countOfPackets++;
         }
        
-            //----------------------------------------------------------
-            //Событие,захватываюшщее пакеты м определяющее его параметры
-            //----------------------------------------------------------
+        ///<summary>
+            ///Событие,захватываюшщее пакеты м определяющее его параметры
+        ///</summary>
             private async void GetPacketsEvent(object sender, CaptureEventArgs e)
             {
             if (!IsActiveCapture) return;

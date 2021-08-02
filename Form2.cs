@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -67,9 +67,9 @@ namespace NetSnake
             }
         }
 
-        //******************************************************************************
-        //* Получает массив байт для полезной нагрузки из файла для пакета TCP или UDP *
-        //******************************************************************************
+        ///<summary>
+        /// Получает массив байт для полезной нагрузки из файла для пакета TCP или UDP 
+        ///</summary>
         private void GetPayloadFromFile(out byte[] payloadData)
         {
             openPayload = new OpenFileDialog();
@@ -78,9 +78,9 @@ namespace NetSnake
 
         }
 
-        //*********************************************
-        //* Событие нажатия на кнопку отправки пакета *
-        //*********************************************
+        ///<summary>
+        /// Событие нажатия на кнопку отправки пакета 
+        ///</summary>
         private void button4_Click_1(object sender, EventArgs e)
         {
             //если выбран ARP пакет
@@ -150,18 +150,18 @@ namespace NetSnake
             }
         }
        
-        //*********************************************
-        //* Событие загрузки полезной нагрузки tcp *
-        //*********************************************
+        ///<summary>
+        /// Событие загрузки полезной нагрузки tcp 
+        ///</summary>
         private void button5_Click(object sender, EventArgs e)
         {
             GetPayloadFromFile(out payloadDataTcp);
             button5.Text = Path.GetFileName(openPayload.FileName);
         }
       
-        //*********************************************
-        //* Событие загрузки полезной нагрузки udp *
-        //*********************************************
+        ///<summary>
+        /// Событие загрузки полезной нагрузки udp 
+        ///</summary>
         private void button6_Click(object sender, EventArgs e)
         {
             GetPayloadFromFile(out payloadDataUdp);

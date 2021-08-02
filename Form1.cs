@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace NetSnake
 {
@@ -34,7 +35,7 @@ namespace NetSnake
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-            chart1.ChartAreas[0].BackImage = Directory.GetCurrentDirectory()+ "\\graphicBackImage.jpg";
+            chart1.ChartAreas[0].BackImage = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\graphicBackImage.jpg";
               netInterfaces = new NetworkInterfaces(label3, label1,label2,listBox1, chart1,label5,label6,button1);   
         }
         private void TranslateToSelectedLanguage()
