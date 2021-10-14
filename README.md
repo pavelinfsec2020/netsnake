@@ -40,4 +40,4 @@ Command:  portsource=2021 | ipdest=0.0.0.0 | prot=ARP | length=40
 
 Before all commands you must enter "ENTER" key;
 
-[![Watch the video](https://github.com/pavelinfsec2020/netsnake/blob/main/screen.png)](http://www.youtube.com/watch?v=QF_eqon30iE)
+[![Watch the video](https://github.com/pavelinfsec2020/netsnake/blob/main/review.png)](http://www.youtube.com/watch?v=QF_eqon30iE)
